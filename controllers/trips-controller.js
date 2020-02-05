@@ -15,5 +15,6 @@ const createTrip = (req, res, next) => {
 };
 
 module.exports = {
-  getAllTrips
+  getAllTrips,
+  createTrip
 };

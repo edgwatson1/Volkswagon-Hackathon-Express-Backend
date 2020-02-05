@@ -2,7 +2,6 @@ const connection = require("../db/config");
 
 const Trip = {};
 
-
 Trip.getAll = (callback) => {
   connection.query(
     'SELECT * FROM trip INNER JOIN car ON trip.car_id = car.id',
@@ -39,28 +38,34 @@ Trip.create = (tripInfo, callback) => {
    );
  };
 
-// Trips.edit = (tripInfo, callback) => {
-//   connection.query(
-//     `UPDATE trip
-//       SET
-//         name = ?,
-//         user_type_id = ?,
-//         language_id = ?,
-//         product_id = ?
-//       WHERE
-//         id = ?`,
-//     [
-//       trips.name,
-//       +trips.user_type_id,
-//       +trips.language_id,
-//       +trips.product_id,
-//       +trips.id
-//     ],
-//     (err, results, fields) => {
-//       callback(err, results, fields);
-//     }
-//   );
-// };
+Trip.edit = (trip, params, callback) => {
+  connection.query(
+    `UPDATE trip
+      SET
+        driver = ?,
+        start_trip = ?,
+        end_trip = ?,
+        destination = ?,
+        car_start_mileage = ?,
+        car_end_mileage = ?,
+        car_id = ?
+      WHERE
+        id = ?`,
+    [
+      trip.driver,
+      new Date(trip.start_trip),
+      new Date(trip.end_trip),
+      trip.destination,
+      +trip.car_start_mileage,
+      +trip.car_end_mileage,
+      +trip.car_id,
+      +params
+    ],
+    (err, results, fields) => {
+      callback(err, results, fields);
+    }
+  );
+};
 
 // Trip.delete = (tripInfo, callback) => {
 //   connection.query(

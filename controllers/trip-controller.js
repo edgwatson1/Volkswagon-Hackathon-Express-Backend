@@ -15,9 +15,18 @@ const createTrip = (req, res, next) => {
   });
 };
 
+const editTrip = (req, res, next) => {
+  id = req.params.id;
+  Trip.edit(req.body, id, err => {
+    if (err) return next(err);
+    return res.sendStatus(200);
+  });
+};
+
 module.exports = {
   getAllTrips,
-  createTrip
+  createTrip,
+  editTrip
 };
 
 

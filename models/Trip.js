@@ -2,17 +2,13 @@ const connection = require("../db/config");
 
 const Trip = {};
 
-
-Trip.getAll = (callback) => {
-  connection.query(
-    'SELECT * FROM trip',
-    (err, results, fields) => {
-      callback(err, results, fields);
-    },
-  );
+Trip.getAll = callback => {
+  connection.query("SELECT * FROM trip", (err, results, fields) => {
+    callback(err, results, fields);
+  });
 };
 
-// Trips.create = (tripInfo, callback) => {
+// Trip.create = (tripInfo, callback) => {
 //   connection.query(
 //     `INSERT INTO trip (name, start_trip, end_trip, destination, car_start_mileage, car_end_mileage, car_id)
 //               VALUES (
@@ -39,28 +35,34 @@ Trip.getAll = (callback) => {
 //   );
 // };
 
-// Trips.edit = (tripInfo, callback) => {
-//   connection.query(
-//     `UPDATE trip
-//       SET
-//         name = ?,
-//         user_type_id = ?,
-//         language_id = ?,
-//         product_id = ?
-//       WHERE
-//         id = ?`,
-//     [
-//       trips.name,
-//       +trips.user_type_id,
-//       +trips.language_id,
-//       +trips.product_id,
-//       +trips.id
-//     ],
-//     (err, results, fields) => {
-//       callback(err, results, fields);
-//     }
-//   );
-// };
+Trip.edit = (trip, params, callback) => {
+  connection.query(
+    `UPDATE trip
+      SET
+        name = ?,
+        start_trip = ?,
+        end_trip = ?,
+        destination = ?,
+        car_start_mileage = ?,
+        car_end_mileage = ?,
+        car_id = ?
+      WHERE
+        id = ?`,
+    [
+      trip.name,
+      new Date(trip.start_trip),
+      new Date(trip.end_trip),
+      trip.destination,
+      +trip.car_start_mileage,
+      +trip.car_end_mileage,
+      +trip.car_id,
+      +params
+    ],
+    (err, results, fields) => {
+      callback(err, results, fields);
+    }
+  );
+};
 
 // Trip.delete = (tripInfo, callback) => {
 //   connection.query(

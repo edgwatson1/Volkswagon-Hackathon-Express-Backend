@@ -8,6 +8,8 @@ const Car = `
     PRIMARY KEY (id)
   );
 `;
+
+
 const Trip = `
   CREATE TABLE IF NOT EXISTS trip (
     id INT NOT NULL AUTO_INCREMENT,

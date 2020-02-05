@@ -5,7 +5,7 @@ const Trip = {};
 
 Trip.getAll = (callback) => {
   connection.query(
-    'SELECT * FROM trip',
+    'SELECT * FROM trip INNER JOIN car ON trip.car_id = car.id',
     (err, results, fields) => {
       callback(err, results, fields);
     },

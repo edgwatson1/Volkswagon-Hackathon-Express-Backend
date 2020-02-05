@@ -6,6 +6,6 @@ const { getAllTrips, createTrip } = require("../controllers/trip-controller");
 /* GET trips listing. */
 router.get("/", getAllTrips);
 
-// router.get("/getall/create", createTrip);
+router.post("/create", createTrip);
 
 module.exports = router;

@@ -10,7 +10,7 @@ const Car = `
 const Trip = `
   CREATE TABLE IF NOT EXISTS trip (
     id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
+    driver VARCHAR(255) NOT NULL,
     start_trip DATETIME NOT NULL,
     end_trip DATETIME NOT NULL,
     destination VARCHAR(255) NOT NULL,

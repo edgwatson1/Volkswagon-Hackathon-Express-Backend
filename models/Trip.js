@@ -2,44 +2,47 @@ const connection = require("../db/config");
 
 const Trip = {};
 
-Trip.getAll = callback => {
-  connection.query("SELECT * FROM trip", (err, results, fields) => {
-    callback(err, results, fields);
-  });
+Trip.getAll = (callback) => {
+  connection.query(
+    'SELECT * FROM trip INNER JOIN car ON trip.car_id = car.id',
+    (err, results, fields) => {
+      callback(err, results, fields);
+    },
+  );
 };
 
-// Trip.create = (tripInfo, callback) => {
-//   connection.query(
-//     `INSERT INTO trip (name, start_trip, end_trip, destination, car_start_mileage, car_end_mileage, car_id)
-//               VALUES (
-//                   ?,
-//                   ?,
-//                   ?,
-//                   ?,
-//                   ?,
-//                   ?,
-//                   ?
-//               )`,
-//     [
-//       tripInfo.name,
-//       +tripInfo.startTrip,
-//       +tripInfo.endTrip,
-//       +tripInfo.destination,
-//       +tripInfo.carStartMileage,
-//       +tripInfo.carEndMileage,
-//       +tripInfo.carID
-//     ],
-//     (err, results, fields) => {
-//       callback(err, results, fields);
-//     }
-//   );
-// };
+Trip.create = (tripInfo, callback) => {
+   connection.query(
+     `INSERT INTO trip (driver, start_trip, end_trip, destination, car_start_mileage, car_end_mileage, car_id)
+               VALUES (
+                   ?,
+                   ?,
+                   ?,
+                   ?,
+                   ?,
+                   ?,
+                   ?
+               )`,
+     [
+       tripInfo.driver,
+       new Date(tripInfo.start_trip),
+       new Date(tripInfo.end_trip),
+       tripInfo.destination,
+       +tripInfo.car_start_mileage,
+       +tripInfo.car_end_mileage,
+       +tripInfo.car_id
+     ],
+     (err, results, fields) => {
+       callback(err, results, fields);
+     }
+   );
+ };
 
 Trip.edit = (trip, params, callback) => {
   connection.query(
     `UPDATE trip
       SET
-        name = ?,
+        driver = ?,
         start_trip = ?,
         end_trip = ?,
         destination = ?,
@@ -49,7 +52,7 @@ Trip.edit = (trip, params, callback) => {
       WHERE
         id = ?`,
     [
-      trip.name,
+      trip.driver,
       new Date(trip.start_trip),
       new Date(trip.end_trip),
       trip.destination,

@@ -4,7 +4,8 @@ var router = express.Router();
 const {
   getAllTrips,
   createTrip,
-  editTrip
+  editTrip,
+  deleteTrip
 } = require("../controllers/trip-controller");
 
 /* GET trips listing. */
@@ -17,7 +18,7 @@ router.post("/create", createTrip);
 router.put("/edit/:id", editTrip);
 
 /* DELETE trip */
-//router.put("/edit/:id", editTrip);
+router.delete("/delete/:id", deleteTrip);
 
 
 module.exports = router;

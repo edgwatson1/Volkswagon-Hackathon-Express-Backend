@@ -23,10 +23,19 @@ const editTrip = (req, res, next) => {
   });
 };
 
+const deleteTrip = (req, res, next) => {
+  id = req.params.id;
+  Trip.delete(id, err => {
+    if (err) return next(err);
+    return res.sendStatus(200);
+  });
+};
+
 module.exports = {
   getAllTrips,
   createTrip,
-  editTrip
+  editTrip,
+  deleteTrip
 };
 
 

@@ -67,14 +67,16 @@ Trip.edit = (trip, params, callback) => {
   );
 };
 
-// Trip.delete = (tripInfo, callback) => {
-//   connection.query(
-//     "DELETE FROM trip WHERE id=?",
-//     [+tripInfo.id],
-//     (err, results, fields) => {
-//       callback(err, results, fields);
-//     }
-//   );
-// };
+Trip.delete = (id, callback) => {
+   connection.query(
+     "DELETE FROM trip WHERE id=?",
+     [
+       +id
+     ],
+     (err, results, fields) => {
+       callback(err, results, fields);
+     }
+   );
+ };
 
 module.exports = Trip;

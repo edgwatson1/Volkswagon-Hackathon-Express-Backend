@@ -10,13 +10,14 @@ const {
 /* GET trips listing. */
 router.get("/", getAllTrips);
 
+/* CREATE trip. */
+router.post("/create", createTrip);
 
 /* EDIT trip listing. */
 router.put("/edit/:id", editTrip);
 
-// router.get("/getall/create", createTrip);
-
-router.post("/create", createTrip);
+/* DELETE trip */
+//router.put("/edit/:id", editTrip);
 
 
 module.exports = router;

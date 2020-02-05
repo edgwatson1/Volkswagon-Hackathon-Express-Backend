@@ -7,6 +7,20 @@ const getAllTrips = (req, res, next) => {
   });
 };
 
+const sendAllTrips = (req, res, next) => {
+  const tripsWithCars = req.trip.map((tr) => {
+    const cars = req.cars.filter((cr) => cr.trip_id === tr.id);
+    return {
+      ...tr,
+      cars,
+    };
+  });
+
+return res.json({
+  trips: tripsWithCars,
+});
+};
+
 const createTrip = (req, res, next) => {
   console.log(req.body)
   Trip.create(req.body, err => {
@@ -35,7 +49,8 @@ module.exports = {
   getAllTrips,
   createTrip,
   editTrip,
-  deleteTrip
+  deleteTrip,
+  sendAllTrips
 };
 
 

@@ -5,11 +5,12 @@ const {
   getAllTrips,
   createTrip,
   editTrip,
-  deleteTrip
+  deleteTrip,
+  sendAllTrips
 } = require("../controllers/trip-controller");
 
 /* GET trips listing. */
-router.get("/", getAllTrips);
+router.get("/", getAllTrips, sendAllTrips);
 
 /* CREATE trip. */
 router.post("/create", createTrip);

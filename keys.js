@@ -1,6 +1,6 @@
 const keys = {
   MYSQL_USER: "root",
-  MYSQL_PASSWORD: "a",
+  MYSQL_PASSWORD: "WCS2019",
   MYSQL_DATABASE: "vwcarpool"
 };
 

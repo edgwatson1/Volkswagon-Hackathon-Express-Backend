@@ -12,7 +12,7 @@ connection.query(
 connection.query(
   `
   INSERT INTO trip
-  (name, start_trip, end_trip, destination, car_start_mileage, car_end_mileage, car_id) 
+  (driver, start_trip, end_trip, destination, car_start_mileage, car_end_mileage, car_id) 
   VALUES 
   ('Ed Watson', '2020-02-02 12:00:00', '2020-02-02 14:00:00', 'Rato', '40672', '40677', 1), 
   ('Nuno Lima', '2020-02-03 14:00:00', '2020-02-03 16:00:00', 'Alameda', '50672', '50677', 2), 

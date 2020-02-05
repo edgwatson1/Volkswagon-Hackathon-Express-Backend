@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
-const { getAllTrips } = require("../controllers/trips-controller");
+const { getAllTrips, createTrip } = require("../controllers/trips-controller");
 
 /* GET users listing. */
 router.get("/", function(req, res, next) {
@@ -9,5 +9,7 @@ router.get("/", function(req, res, next) {
 });
 
 router.get("/getall", getAllTrips);
+
+router.get("/getall", createTrip);
 
 module.exports = router;

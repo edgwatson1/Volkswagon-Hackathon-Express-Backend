@@ -1,5 +1,4 @@
 const connection = require("./config");
-
 connection.query(
   `
   INSERT INTO car(plate, img_url) 
@@ -10,7 +9,6 @@ connection.query(
     console.log("car table seeded");
   }
 );
-
 connection.query(
   `
   INSERT INTO trip
@@ -19,7 +17,7 @@ connection.query(
   ('Ed Watson', '2020-02-02 12:00:00', '2020-02-02 14:00:00', 'Rato', '40672', '40677', 1), 
   ('Nuno Lima', '2020-02-03 14:00:00', '2020-02-03 16:00:00', 'Alameda', '50672', '50677', 2), 
   ('Carolina Viero', '2020-02-03 18:00:00', '2020-02-03 20:00:00', 'Alameda', '50677', '50682', 2), 
-  ('Angélina Riet', '2020-02-04 12:00:00', '2020-02-04 14:00:00', 'Rato', '40677', '40682', 1), 
+  ('Angélina Riet', '2020-02-04 12:00:00', '2020-02-04 14:00:00', 'Rato', '40677', '40682', 1) 
 `,
   err => {
     console.log(err);

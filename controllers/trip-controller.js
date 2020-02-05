@@ -8,6 +8,7 @@ const getAllTrips = (req, res, next) => {
 };
 
 const createTrip = (req, res, next) => {
+  console.log(req.body)
   Trip.create(req.body, err => {
     if (err) return next(err);
     return res.sendStatus(200);
@@ -18,3 +19,5 @@ module.exports = {
   getAllTrips,
   createTrip
 };
+
+

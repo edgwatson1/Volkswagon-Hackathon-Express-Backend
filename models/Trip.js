@@ -12,32 +12,32 @@ Trip.getAll = (callback) => {
   );
 };
 
-// Trips.create = (tripInfo, callback) => {
-//   connection.query(
-//     `INSERT INTO trip (name, start_trip, end_trip, destination, car_start_mileage, car_end_mileage, car_id)
-//               VALUES (
-//                   ?,
-//                   ?,
-//                   ?,
-//                   ?,
-//                   ?,
-//                   ?,
-//                   ?
-//               )`,
-//     [
-//       tripInfo.name,
-//       +tripInfo.startTrip,
-//       +tripInfo.endTrip,
-//       +tripInfo.destination,
-//       +tripInfo.carStartMileage,
-//       +tripInfo.carEndMileage,
-//       +tripInfo.carID
-//     ],
-//     (err, results, fields) => {
-//       callback(err, results, fields);
-//     }
-//   );
-// };
+Trip.create = (tripInfo, callback) => {
+   connection.query(
+     `INSERT INTO trip (driver, start_trip, end_trip, destination, car_start_mileage, car_end_mileage, car_id)
+               VALUES (
+                   ?,
+                   ?,
+                   ?,
+                   ?,
+                   ?,
+                   ?,
+                   ?
+               )`,
+     [
+       tripInfo.driver,
+       new Date(tripInfo.start_trip),
+       new Date(tripInfo.end_trip),
+       tripInfo.destination,
+       +tripInfo.car_start_mileage,
+       +tripInfo.car_end_mileage,
+       +tripInfo.car_id
+     ],
+     (err, results, fields) => {
+       callback(err, results, fields);
+     }
+   );
+ };
 
 // Trips.edit = (tripInfo, callback) => {
 //   connection.query(

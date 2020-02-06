@@ -1,16 +1,13 @@
 const connection = require("../db/config");
-
 const Trip = {};
-
 Trip.getAll = (callback) => {
   connection.query(
-    'SELECT * FROM trip',
+    'SELECT * FROM trip INNER JOIN car ON trip.car_id = car.id',
     (err, results, fields) => {
       callback(err, results, fields);
     },
   );
 };
-
 Trip.create = (tripInfo, callback) => {
    connection.query(
      `INSERT INTO trip (driver, start_trip, end_trip, destination, car_start_mileage, car_end_mileage, car_id)
@@ -37,7 +34,6 @@ Trip.create = (tripInfo, callback) => {
      }
    );
  };
-
 Trip.edit = (trip, params, callback) => {
   connection.query(
     `UPDATE trip
@@ -68,15 +64,14 @@ Trip.edit = (trip, params, callback) => {
 };
 
 Trip.delete = (id, callback) => {
-   connection.query(
-     "DELETE FROM trip WHERE id=?",
-     [
-       +id
-     ],
-     (err, results, fields) => {
-       callback(err, results, fields);
-     }
-   );
- };
-
+  connection.query(
+    "DELETE FROM trip WHERE id=?",
+    [
+      +id
+    ],
+    (err, results, fields) => {
+      callback(err, results, fields);
+    }
+  );
+};
 module.exports = Trip;

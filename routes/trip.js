@@ -6,11 +6,10 @@ const {
   createTrip,
   editTrip,
   deleteTrip,
-  sendAllTrips
 } = require("../controllers/trip-controller");
 
 /* GET trips listing. */
-router.get("/", getAllTrips, sendAllTrips);
+router.get("/", getAllTrips);
 
 /* CREATE trip. */
 router.post("/create", createTrip);

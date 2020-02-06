@@ -1,25 +1,21 @@
 const Trip = require("../models/Trip");
+const Car = require("../models/Car");
 
 const getAllTrips = (req, res, next) => {
   Trip.getAll((err, results) => {
     if (err) return next(err);
-    return res.json({ trips: results });
+    req.trip = results;
+    next();
   });
 };
 
-const sendAllTrips = (req, res, next) => {
-  const tripsWithCars = req.trip.map((tr) => {
-    const cars = req.cars.filter((cr) => cr.trip_id === tr.id);
-    return {
-      ...tr,
-      cars,
-    };
+const getAllCars = (req, res, next) => {
+  Car.getAll((err, results) => {
+    if (err) return next(err);
+    return res.status(200).json({ trips: req.trip, cars: results });
   });
-
-return res.json({
-  trips: tripsWithCars,
-});
 };
+
 
 const createTrip = (req, res, next) => {
   console.log(req.body)
@@ -50,5 +46,5 @@ module.exports = {
   createTrip,
   editTrip,
   deleteTrip,
-  sendAllTrips
+  getAllCars
 };

@@ -5,14 +5,14 @@ connection.query(
   VALUES (
     'PG-08-70', 
     'https://res.cloudinary.com/drm2ot7ge/image/upload/v1580913034/Volkswagen/Captura_de_ecr%C3%A3_2020-02-05_%C3%A0s_10.23.25_AM_jvl8ub.png',
-    'https://res.cloudinary.com/edwardwatson/image/upload/v1581007347/Volkswagon%20Hackathon/Captura_de_ecrã_2020-02-06_às_4.24.37_PM_wy3j6a.png',
+    'https://res.cloudinary.com/edwardwatson/image/upload/v1581013497/Volkswagon%20Hackathon/Captura_de_ecr%C3%A3_2020-02-06_%C3%A0s_4.24.37_PM_wy3j6a.png',
     'Volkswagen',
     'T-Roc'
     ),
   (
     'PG-09-77', 
     'https://res.cloudinary.com/drm2ot7ge/image/upload/v1580913034/Volkswagen/Captura_de_ecr%C3%A3_2020-02-05_%C3%A0s_10.24.23_AM_nxoeww.png', 
-    'https://res.cloudinary.com/edwardwatson/image/upload/v1581007347/Volkswagon%20Hackathon/Captura_de_ecrã_2020-02-06_às_4.24.56_PM_cp8xzo.png',
+    'https://res.cloudinary.com/edwardwatson/image/upload/v1581013424/Volkswagon%20Hackathon/Captura_de_ecr%C3%A3_2020-02-06_%C3%A0s_4.24.56_PM_cp8xzo.png',
     'Volkswagen',
     'Polo'
     )`,

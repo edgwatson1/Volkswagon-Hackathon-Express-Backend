@@ -4,6 +4,9 @@ const Car = `
     id INT NOT NULL AUTO_INCREMENT,
     plate VARCHAR(20) NOT NULL,
     img_url VARCHAR(2083),
+    img_url_alternative VARCHAR(2083),
+    make VARCHAR(255),
+    model VARCHAR(255),
     PRIMARY KEY (id)
   );
 `;

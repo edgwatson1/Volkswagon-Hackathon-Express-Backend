@@ -27,8 +27,8 @@ Trip.create = (tripInfo, callback) => {
             new Date(tripInfo.start_trip),
             new Date(tripInfo.end_trip),
             tripInfo.destination,
-            +tripInfo.car_start_mileage,
-            +tripInfo.car_end_mileage,
+            0,
+            0,
             +tripInfo.car_id
         ],
         (err, results, fields) => {

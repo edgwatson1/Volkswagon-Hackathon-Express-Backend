@@ -39,3 +39,6 @@ app.use(function(req, res, next) {
 //});
 
 module.exports = app;
+
+
+// select car_id, month(end_trip), SUM(car_end_mileage - car_start_mileage) from trip group by car_id,  month(end_trip);

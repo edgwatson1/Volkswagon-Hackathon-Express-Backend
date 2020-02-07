@@ -18,6 +18,7 @@ const getAllCars = (req, res, next) => {
 
 
 const createTrip = (req, res, next) => {
+  console.log(req.body);
   Trip.create(req.body, err => {
     if (err) return next(err);
     return res.sendStatus(200);
@@ -25,7 +26,6 @@ const createTrip = (req, res, next) => {
 };
 
 const editTrip = (req, res, next) => {
-  console.log("HERE", req.body, req.params.id)
   id = req.params.id;
   Trip.edit(req.body, id, err => {
     if (err) return next(err);

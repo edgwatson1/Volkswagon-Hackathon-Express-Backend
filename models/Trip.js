@@ -75,4 +75,27 @@ Trip.delete = (id, callback) => {
         }
     );
 };
+
+Trip.getMetricsByCar = (cb) => {
+    connection.query(`
+            SELECT car.plate plate, car_id carId, MONTH(end_trip) month, SUM(car_end_mileage - car_start_mileage) totalMileage FROM trip 
+                JOIN car
+                ON trip.car_id = car.id
+            GROUP BY car_id,  MONTH(end_trip)
+        `, (err, results, fields) => {
+            cb(err, results);
+        }
+    );
+};
+
+Trip.getMetricsByDriver = (cb) => {
+    connection.query(`
+            SELECT driver, MONTH(end_trip) month, SUM(car_end_mileage - car_start_mileage) totalMileage FROM trip GROUP BY driver,  MONTH(end_trip)
+        `, (err, results, fields) => {
+            cb(err, results);
+        }
+    );
+};
+
+
 module.exports = Trip;

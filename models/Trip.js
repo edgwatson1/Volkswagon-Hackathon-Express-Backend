@@ -78,10 +78,12 @@ Trip.delete = (id, callback) => {
 
 Trip.getMetricsByCar = (cb) => {
     connection.query(`
-            SELECT car.plate plate, car_id carId, MONTH(end_trip) month, SUM(car_end_mileage - car_start_mileage) totalMileage FROM trip 
+            SELECT car.plate plate, car_id carId, YEAR(end_trip) year, MONTH(end_trip) month, SUM(car_end_mileage - car_start_mileage) totalMileage FROM trip 
                 JOIN car
                 ON trip.car_id = car.id
-            GROUP BY car_id,  MONTH(end_trip)
+            GROUP BY car_id,  
+                YEAR(end_trip),
+                MONTH(end_trip) 
         `, (err, results, fields) => {
             cb(err, results);
         }
@@ -90,7 +92,10 @@ Trip.getMetricsByCar = (cb) => {
 
 Trip.getMetricsByDriver = (cb) => {
     connection.query(`
-            SELECT driver, MONTH(end_trip) month, SUM(car_end_mileage - car_start_mileage) totalMileage FROM trip GROUP BY driver,  MONTH(end_trip)
+            SELECT driver, YEAR(end_trip) year, MONTH(end_trip) month, SUM(car_end_mileage - car_start_mileage) totalMileage FROM trip 
+            GROUP BY driver,
+                YEAR(end_trip),
+                MONTH(end_trip)
         `, (err, results, fields) => {
             cb(err, results);
         }

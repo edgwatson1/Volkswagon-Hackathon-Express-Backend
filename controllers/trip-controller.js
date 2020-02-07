@@ -41,10 +41,31 @@ const deleteTrip = (req, res, next) => {
   });
 };
 
+const getCarMetrics = (req, res, next) => {
+  Trip.getMetricsByCar((err, results) => {
+    if (err) next(err);
+    req.carMetrics = results;
+    next();
+  })
+};
+
+const getDriverMetrics = (req, res, next) => {
+  Trip.getMetricsByDriver((err, results) => {
+    if (err) return next(err);
+    return res.status(200).json({
+      carMetrics: req.carMetrics,
+      driverMetrics: results
+    });
+  });
+};
+
+
 module.exports = {
   getAllTrips,
   createTrip,
   editTrip,
   deleteTrip,
-  getAllCars
+  getAllCars, 
+  getCarMetrics, 
+  getDriverMetrics
 };

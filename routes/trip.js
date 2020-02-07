@@ -6,7 +6,9 @@ const {
   createTrip,
   editTrip,
   deleteTrip,
-  getAllCars
+  getAllCars,
+  getCarMetrics,
+  getDriverMetrics
 } = require("../controllers/trip-controller");
 
 /* GET trips listing. */
@@ -21,5 +23,7 @@ router.put("/edit/:id", editTrip);
 /* DELETE trip */
 router.delete("/delete/:id", deleteTrip);
 
+// Get metrics
+router.get("/metrics", getCarMetrics, getDriverMetrics);
 
 module.exports = router;

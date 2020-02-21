@@ -12,7 +12,7 @@ const {
 } = require("../controllers/trip-controller");
 
 /* GET trips listing. */
-router.get("/", (req, res) => res.status(200).send("success"), getAllTrips, getAllCars);
+router.get("/", getAllTrips, getAllCars);
 
 /* CREATE trip. */
 router.post("/create", createTrip);

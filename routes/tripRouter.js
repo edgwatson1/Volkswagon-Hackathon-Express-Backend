@@ -14,7 +14,7 @@ const {
 } = require("../controllers/trip-controller");
 
 /* GET trips listing. */
-router.get("/", (req, res, next) => {console.log(connection); next()}, getAllTrips, getAllCars);
+router.get("/", getAllTrips, getAllCars);
 
 /* CREATE trip. */
 router.post("/create", createTrip);

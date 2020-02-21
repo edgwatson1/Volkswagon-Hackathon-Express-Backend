@@ -2,7 +2,6 @@ const connection = require("../db/config");
 const Trip = {};
 
 Trip.getAll = (callback) => {
-    console.log(connection);
   connection.query(
     'SELECT trip.id AS id, driver, start_trip, end_trip, destination, car_start_mileage, car_end_mileage, car_id, car.plate, car.img_url, car.img_url_alternative, car.make, car.model FROM trip INNER JOIN car ON trip.car_id = car.id ORDER BY start_trip DESC ',
     (err, results, fields) => {

@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 
+const connection = require("../db/config");
+
 const {
   getAllTrips,
   createTrip,
@@ -12,7 +14,7 @@ const {
 } = require("../controllers/trip-controller");
 
 /* GET trips listing. */
-router.get("/", getAllTrips, getAllCars);
+router.get("/", (req, res) => res.send("connection: " + connection.toString()), getAllTrips, getAllCars);
 
 /* CREATE trip. */
 router.post("/create", createTrip);

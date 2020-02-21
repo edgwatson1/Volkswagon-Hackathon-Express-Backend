@@ -1,26 +1,26 @@
 const connection = require("./config");
 
-connection.query(
-  `
-  INSERT INTO car(plate, img_url, img_url_alternative, make, model) 
-  VALUES (
-    'PG-08-70', 
-    'https://res.cloudinary.com/drm2ot7ge/image/upload/v1580913034/Volkswagen/Captura_de_ecr%C3%A3_2020-02-05_%C3%A0s_10.23.25_AM_jvl8ub.png',
-    'https://res.cloudinary.com/edwardwatson/image/upload/v1581013497/Volkswagon%20Hackathon/Captura_de_ecr%C3%A3_2020-02-06_%C3%A0s_4.24.37_PM_wy3j6a.png',
-    'Volkswagen',
-    'T-Roc'
-    ),
-  (
-    'PG-09-77', 
-    'https://res.cloudinary.com/drm2ot7ge/image/upload/v1580913034/Volkswagen/Captura_de_ecr%C3%A3_2020-02-05_%C3%A0s_10.24.23_AM_nxoeww.png', 
-    'https://res.cloudinary.com/edwardwatson/image/upload/v1581013424/Volkswagon%20Hackathon/Captura_de_ecr%C3%A3_2020-02-06_%C3%A0s_4.24.56_PM_cp8xzo.png',
-    'Volkswagen',
-    'T-Roc'
-    )`,
-  err => {
-    console.log("car table seeded");
-  }
-);
+// connection.query(
+//   `
+//   INSERT INTO car(plate, img_url, img_url_alternative, make, model) 
+//   VALUES (
+//     'PG-08-70', 
+//     'https://res.cloudinary.com/drm2ot7ge/image/upload/v1580913034/Volkswagen/Captura_de_ecr%C3%A3_2020-02-05_%C3%A0s_10.23.25_AM_jvl8ub.png',
+//     'https://res.cloudinary.com/edwardwatson/image/upload/v1581013497/Volkswagon%20Hackathon/Captura_de_ecr%C3%A3_2020-02-06_%C3%A0s_4.24.37_PM_wy3j6a.png',
+//     'Volkswagen',
+//     'T-Roc'
+//     ),
+//   (
+//     'PG-09-77', 
+//     'https://res.cloudinary.com/drm2ot7ge/image/upload/v1580913034/Volkswagen/Captura_de_ecr%C3%A3_2020-02-05_%C3%A0s_10.24.23_AM_nxoeww.png', 
+//     'https://res.cloudinary.com/edwardwatson/image/upload/v1581013424/Volkswagon%20Hackathon/Captura_de_ecr%C3%A3_2020-02-06_%C3%A0s_4.24.56_PM_cp8xzo.png',
+//     'Volkswagen',
+//     'T-Roc'
+//     )`,
+//   err => {
+//     console.log("car table seeded");
+//   }
+// );
 
 // connection.query(
 //   `
@@ -154,12 +154,8 @@ connection.query(
   INSERT INTO trip
   (driver, start_trip, end_trip, destination, car_start_mileage, car_end_mileage, car_id)
   VALUES
-  ('Codi Scrool', '2020-02-05 12:00:00', '2020-02-05 15:00:00', 'Rato', 41079,  41085, 1),
-  ('Johnathon Broom', '2020-02-01 14:00:00', '2020-02-05 16:00:00', 'Porto', 51015, 51025, 2),
-  ('Carolina Viero', '2020-02-06 12:00:00', '2020-02-06 16:00:00', 'Rato', 51025, 51025, 2),
-  ('Angélina Riet', '2020-02-06 12:00:00', '2020-02-09 14:00:00', 'Porto', 41085, 41085, 1),
-  ('Ed Watson', '2020-02-10 12:00:00', '2020-02-10 16:00:00', 'Sintra', 0, 0, 1),
-  ('Nuno Lima', '2020-02-08 14:00:00', '2020-02-13 16:00:00', 'Porto', 0, 0, 2)`,
+  ('Codi Scrool', '2020-02-05 12:00:00', '2020-02-05 15:00:00', 'Rato', 41079,  41085, 1)
+  `,
   err => {
     console.log(err);
     console.log("trip table seeded");

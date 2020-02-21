@@ -1,13 +1,12 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var cors = require("cors");
-var tripRouter = require("./routes/trip");
-var indexRouter = require("./routes/index");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const cors = require("cors");
+const tripRouter = require("./routes/tripRouter");
 
-var app = express();
+const app = express();
 
 //view engine setup - EW: Not needed
 //app.set('views', path.join(__dirname, 'views'));
@@ -19,7 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
-app.use("/", indexRouter);
+
 app.use("/trip", tripRouter);
 
 // catch 404 and forward to error handler

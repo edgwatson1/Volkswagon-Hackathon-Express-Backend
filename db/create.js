@@ -40,4 +40,5 @@ connection.query(Car, err => {
       }
     });
   }
+  connection.end();
 });

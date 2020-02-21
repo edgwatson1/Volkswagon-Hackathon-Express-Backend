@@ -1,4 +1,5 @@
 const connection = require("./config");
+
 connection.query(
   `
   INSERT INTO car(plate, img_url, img_url_alternative, make, model) 
@@ -17,7 +18,6 @@ connection.query(
     'T-Roc'
     )`,
   err => {
-    console.log(err);
     console.log("car table seeded");
   }
 );
@@ -149,20 +149,20 @@ connection.query(
 //   }
 // );
 
-// connection.query(
-//   `
-//   INSERT INTO trip
-//   (driver, start_trip, end_trip, destination, car_start_mileage, car_end_mileage, car_id)
-//   VALUES
-//   ('Codi Scrool', '2020-02-05 12:00:00', '2020-02-05 15:00:00', 'Rato', 41079,  41085, 1),
-//   ('Johnathon Broom', '2020-02-01 14:00:00', '2020-02-05 16:00:00', 'Porto', 51015, 51025, 2),
-//   ('Carolina Viero', '2020-02-06 12:00:00', '2020-02-06 16:00:00', 'Rato', 51025, 51025, 2),
-//   ('Angélina Riet', '2020-02-06 12:00:00', '2020-02-09 14:00:00', 'Porto', 41085, 41085, 1),
-//   ('Ed Watson', '2020-02-10 12:00:00', '2020-02-10 16:00:00', 'Sintra', 0, 0, 1),
-//   ('Nuno Lima', '2020-02-08 14:00:00', '2020-02-13 16:00:00', 'Porto', 0, 0, 2)`,
-//   err => {
-//     console.log(err);
-//     console.log("trip table seeded");
-//     connection.end();
-//   }
-// );
+connection.query(
+  `
+  INSERT INTO trip
+  (driver, start_trip, end_trip, destination, car_start_mileage, car_end_mileage, car_id)
+  VALUES
+  ('Codi Scrool', '2020-02-05 12:00:00', '2020-02-05 15:00:00', 'Rato', 41079,  41085, 1),
+  ('Johnathon Broom', '2020-02-01 14:00:00', '2020-02-05 16:00:00', 'Porto', 51015, 51025, 2),
+  ('Carolina Viero', '2020-02-06 12:00:00', '2020-02-06 16:00:00', 'Rato', 51025, 51025, 2),
+  ('Angélina Riet', '2020-02-06 12:00:00', '2020-02-09 14:00:00', 'Porto', 41085, 41085, 1),
+  ('Ed Watson', '2020-02-10 12:00:00', '2020-02-10 16:00:00', 'Sintra', 0, 0, 1),
+  ('Nuno Lima', '2020-02-08 14:00:00', '2020-02-13 16:00:00', 'Porto', 0, 0, 2)`,
+  err => {
+    console.log(err);
+    console.log("trip table seeded");
+    connection.end();
+  }
+);

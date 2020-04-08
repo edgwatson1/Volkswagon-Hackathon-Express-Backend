@@ -19,6 +19,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
+app.get("/", (req, res) => res.sendStatus(200));
+
 app.use("/trip", tripRouter);
 
 // catch 404 and forward to error handler
